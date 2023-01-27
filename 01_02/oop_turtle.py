@@ -2,14 +2,23 @@
 import turtle
 
 # Define program constants
-WIDTH = 1000
-HEIGHT = 1000
+WIDTH = 800
+HEIGHT = 800
+DELAY = 20 # Milliscrends betwwen screen updates
+
+def move_turtle(t, x, y):
+    t.forward(x)
+    t.right(y)
+    screen.update()
+    screen.ontimer(move_turtle(t, x, y), DELAY)
+
 
 # Create a windown screen
 screen = turtle.Screen()
 screen.setup(WIDTH, HEIGHT)
 screen.title("Turtle Game")
 screen.bgcolor('black')
+screen.tracer(0) # turn off automatic animation
 
 #create turtle #1 object
 turtle_one = turtle.Turtle()
@@ -21,17 +30,7 @@ turtle_two = turtle.Turtle()
 turtle_two.shape('turtle')
 turtle_two.color('blue')
 
-#turtles movement
-turtle_one.forward(100)
-turtle_one.right(45)
-turtle_one.forward(90)
-turtle_one.left(45)
-turtle_one.forward(90)
-
-turtle_two.forward(-100)
-turtle_two.right(-45)
-turtle_two.forward(-90)
-turtle_two.left(-45)
-turtle_two.forward(-90)
+#move_turtle(turtle_one, 10, 10)
+move_turtle(turtle_two, -1, -1)
 
 turtle.done()
