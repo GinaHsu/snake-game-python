@@ -53,8 +53,4 @@ for segment in snake:
 # Set animation in motion
 move_snake()
 
-
-
-
-# Game ove
 turtle.done()
