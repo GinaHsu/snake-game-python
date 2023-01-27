@@ -23,7 +23,4 @@ stamper.shapesize(10 / 20)
 stamper.goto(100, -100)
 stamper.stamp()
 
-
-
-
 turtle.done()
