@@ -22,6 +22,7 @@ def go_right():
     global snake_direction
     if snake_direction != 'left':
         snake_direction = 'right'
+
 def go_down():
     global snake_direction
     if snake_direction != 'up':
