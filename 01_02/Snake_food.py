@@ -5,7 +5,7 @@ import random
 # Define program constants
 WIDTH = 500
 HEIGHT = 500
-DELAY = 500 # Milliscrends
+DELAY = 150 # Milliscrends
 FOOD_SIZE = 20
 
 offsets = {
@@ -59,8 +59,9 @@ def move_snake():
             snake.stamp()
 
         # Refresh screen
+        screen.title(f'|| Snake Game | Score: {score} ||')
         screen.update()
-        
+
         # Rinse and repeat
         turtle.ontimer(move_snake, DELAY)
 
@@ -78,10 +79,11 @@ def get_random_food_pos():
     return (x, y)
 
 def is_food_collison():
-    global food_pos
-    distance_with_food = get_distance(snake_segment[-1], food_pos)
+    global food_pos, score
 
+    distance_with_food = get_distance(snake_segment[-1], food_pos)
     if distance_with_food < 20:
+        score += 1
         food_pos = get_random_food_pos()
         food.goto(food_pos)
         return True
@@ -123,8 +125,9 @@ food.penup()
 food_pos = get_random_food_pos()
 food.goto(food_pos)
 
-# Default snake_direction
+# Default setting
 snake_direction = 'up'
+score = 0
 
 # Set animation in motion
 move_snake()
