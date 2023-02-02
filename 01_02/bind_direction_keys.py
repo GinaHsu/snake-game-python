@@ -16,7 +16,7 @@ offsets = {
 }
 
 def bind_direction_keys():
-    screen.onkey(lambda: set_snake_direction('right'), 'Up')
+    screen.onkey(lambda: set_snake_direction('up'), 'Up')
     screen.onkey(lambda: set_snake_direction('right'), 'Right')
     screen.onkey(lambda: set_snake_direction('down'), 'Down')
     screen.onkey(lambda: set_snake_direction('left'), 'Left')
@@ -121,11 +121,6 @@ screen.title(f'|| Snake Game | Score: {score} ||')
 screen.bgcolor('pink')
 screen.tracer(0) # Turn off automatic animation
 
-# Event handlers
-screen.listen()
-bind_direction_keys()
-
-
 #create a snake
 snake = turtle.Turtle()
 snake.shape('square')
@@ -138,6 +133,10 @@ food.shape('circle')
 food.shapesize(FOOD_SIZE / 20)
 food.color('red')
 food.penup()
+
+# Event handlers
+screen.listen()
+bind_direction_keys()
 
 # Set animation in motion
 reset()
